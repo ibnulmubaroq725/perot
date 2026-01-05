@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Voltra Techno</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+  <header>
+    <!-- 🔥 Tambahan: wadah logo dengan efek sinar -->
+    <div class="logo-container">
+      <img src="logo-voltra.jpg" alt="Voltra Techno Logo" />
+      <div class="rotating-light"></div>
+    </div>
+
+    <!-- 🔥 Teks dengan animasi elektrik glow -->
+    <h1 class="electric-title">
+      <span>V</span><span>O</span><span>L</span><span>T</span><span>R</span><span>A</span>
+      &nbsp;
+      <span>T</span><span>E</span><span>C</span><span>H</span><span>N</span><span>O</span>
+    </h1>
+
+    <nav>
+      <a href="#products">Products</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="intro" id="about">
+      <h2>Innovating the Future of Technology & Robotics</h2>
+      <p>
+        Voltra Techno is dedicated to creating cutting-edge technological and robotic products
+        that shape a smarter, more connected world. Explore our innovative lineup designed to empower your life and work.
+      </p>
+    </section>
+
+    <!-- Produk Grid - Diubah menjadi 2 ikon utama -->
+    <section class="products" id="products">
+      <div class="product-card" data-modal="modal1">
+        <div class="product-icon">
+          <i class="fas fa-cogs"></i> <!-- Ikon untuk Produk -->
+        </div>
+        <div class="product-content">
+          <h3>Products</h3>
+          <p>Explore our existing projects in Electronics, IoT Devices & Robotics.</p>
+        </div>
+      </div>
+
+      <div class="product-card" data-modal="modal2">
+        <div class="product-icon">
+          <i class="fas fa-tools"></i> <!-- Ikon untuk Custom Project -->
+        </div>
+        <div class="product-content">
+          <h3>Custom Project</h3>
+          <p>Custom development services including PCB Layout Design and 3D Design.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" style="margin-top: 50px; text-align:center;">
+      <h2>Contact Us</h2>
+      <p>Email: Voltratechno@gmail.com</p>
+      <p>Phone: +62 831 9487 0553</p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Voltra Techno. All rights reserved.
+  </footer>
+
+  <!-- Modal Produk 1 - Produk yang Ada -->
+  <div class="modal" id="modal1">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h2>Products</h2>
+      <p>All Variants:</p>
+      <div class="varian-container">
+        <img src="LF DEAD RACE.jpg" alt="LF Dead Race" class="varian-3d">
+        <img src="THE BATTLE SUMO ROBOT.jpg" alt="THE BATTLE SUMO ROBOT" class="varian-3d">
+        <!-- FIRE FIGHTER ANALOG dan VOLTRA WATCH dihapus sesuai permintaan -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Produk 2 - Custom Project -->
+  <div class="modal" id="modal2">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h2>Custom Project</h2>
+      <p>Choose a service:</p>
+      <div class="varian-container">
+        <div class="custom-service" data-service="pcb">
+          <i class="fas fa-microchip"></i>
+          <h4>PCB Layout Design</h4>
+        </div>
+        <div class="custom-service" data-service="3d">
+          <i class="fas fa-cube"></i>
+          <h4>3D Design</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal untuk 3D Preview -->
+  <div class="modal" id="modal3d">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h2>3D View</h2>
+      <div class="varian-3d-container">
+        <img src="" alt="3D Product" class="varian-3d-preview">
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Produk 3 - Tetap ada untuk konsultasi -->
+  <div class="modal" id="modal3">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h2>Consultation With Research & Development</h2>
+      <p>Contact Us:</p>
+      <div class="varian-container contact-container">
+        <button id="whatsapp-btn" class="contact-btn whatsapp">
+          <i class="fab fa-whatsapp"></i> WhatsApp
+        </button>
+        <button id="instagram-btn" class="contact-btn instagram">
+          <i class="fab fa-instagram"></i> Instagram
+        </button>
+        <button id="email-btn" class="contact-btn email">
+          <i class="fas fa-envelope"></i> Email
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

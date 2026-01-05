@@ -1,0 +1,489 @@
+/* Reset dasar */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  background-color: #f2f4f8;
+  color: #222;
+  position: relative;
+}
+
+/* Latar belakang samar dengan logo Voltra */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('logo-voltra.jpg') no-repeat center center;  /* Path gambar logo - ganti jika perlu */
+  
+  /* === PENGATURAN UKURAN LATAR BELAKANG (GANTI NILAI INI UNTUK MENYESUAIKAN) === */
+  /* Opsi 4: Nilai spesifik - Atur lebar dan tinggi manual */
+  background-size: 60%;  /* Contoh: setengah ukuran (ubah angka % sesuai kebutuhan, misal 30% lebih kecil, 80% lebih besar) */
+  /* Atau gunakan nilai piksel: background-size: 300px 200px; */  /* Contoh: lebar 300px, tinggi 200px (ubah angka sesuai ukuran yang diinginkan) */
+  
+  opacity: 0.3;  /* Samarkan logo - ganti nilai antara 0.0 (sangat samar) sampai 1.0 (jelas) */
+  z-index: -1;  /* Pastikan di belakang konten */
+}
+
+
+header {
+  background-color: #0a1f2c;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 15px 30px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  gap: 15px;
+}
+
+header img {
+  height: 60px;
+  width: auto;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+/* --- Animasi teks huruf demi huruf --- */
+.electric-title {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  display: flex;
+  color: #00e5ff;
+  text-transform: uppercase;
+  position: relative;
+}
+
+/* Tiap huruf */
+.electric-title span {
+  opacity: 0.1;
+  text-shadow: 0 0 0 transparent;
+  animation: glowEach 0.15s forwards;
+}
+
+/* Delay nyala satu per satu */
+.electric-title span:nth-child(1) { animation-delay: 0.1s; }
+.electric-title span:nth-child(2) { animation-delay: 0.25s; }
+.electric-title span:nth-child(3) { animation-delay: 0.4s; }
+.electric-title span:nth-child(4) { animation-delay: 0.55s; }
+.electric-title span:nth-child(5) { animation-delay: 0.7s; }
+.electric-title span:nth-child(6) { animation-delay: 0.85s; }
+.electric-title span:nth-child(7) { animation-delay: 1.0s; }
+.electric-title span:nth-child(8) { animation-delay: 1.15s; }
+.electric-title span:nth-child(9) { animation-delay: 1.3s; }
+.electric-title span:nth-child(10){ animation-delay: 1.45s; }
+.electric-title span:nth-child(11){ animation-delay: 1.6s; }
+.electric-title span:nth-child(12){ animation-delay: 1.75s; }
+
+@keyframes glowEach {
+  0% {
+    opacity: 0.1;
+    text-shadow: 0 0 2px #00e5ff;
+    color: #004d66;
+  }
+  50% {
+    opacity: 1;
+    text-shadow: 0 0 8px #00e5ff, 0 0 16px #00bcd4;
+    color: #00ffff;
+  }
+  100% {
+    opacity: 1;
+    text-shadow: 0 0 10px #00ffff, 0 0 30px #00bcd4, 0 0 60px #00e5ff;
+    color: #e0ffff;
+  }
+}
+
+/* Kilatan cahaya setelah semua huruf menyala */
+.electric-title::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -20%;
+  width: 140%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, #ffffff55, transparent);
+  transform: translateY(-50%) skewX(-20deg);
+  opacity: 0;
+  animation: flashSweep 2.3s ease-in-out infinite;
+  animation-delay: 2.2s;
+}
+
+@keyframes flashSweep {
+  0% { left: -30%; opacity: 0; }
+  10% { opacity: 1; }
+  50% { left: 100%; opacity: 0.8; }
+  100% { opacity: 0; left: 130%; }
+}
+
+/* --- Efek sinar & titik berputar pada logo --- */
+.logo-container {
+  position: relative;
+  display: inline-block;
+}
+
+.logo-container img {
+  height: 60px;
+  width: auto;
+  border-radius: 20%;
+  border: 3px solid #00e5ff;
+  box-shadow: 0 0 15px #00e5ff88, 0 0 30px #00bcd455;
+  animation: logoGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes logoGlow {
+  0% {
+    box-shadow: 0 0 5px #00e5ff55, 0 0 15px #00bcd455;
+    border-color: #0097a7;
+  }
+  100% {
+    box-shadow: 0 0 25px #00e5ff, 0 0 50px #00ffff;
+    border-color: #00ffff;
+  }
+}
+
+/* Titik berputar mengelilingi logo */
+.rotating-light {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  animation: rotateLight 3s linear infinite;
+}
+
+.rotating-light::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  background: radial-gradient(circle, #00e5ff, transparent 70%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes rotateLight {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+header img:hover {
+  transform: scale(1.05);
+}
+
+nav {
+  margin-left: auto;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #1ed760;
+}
+
+main {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+.intro {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.intro h2 {
+  font-size: 2.4rem;
+  margin-bottom: 12px;
+  color: #0a1f2c;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.product-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+}
+
+.product-icon {
+  text-align: center;
+  padding: 20px;
+  font-size: 4rem;
+  color: #00e5ff;
+}
+
+.product-content {
+  padding: 15px 20px;
+}
+
+.product-content h3 {
+  margin: 0 0 10px 0;
+  color: #0a1f2c;
+}
+
+footer {
+  background-color: #0a1f2c;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  margin-top: 50px;
+  font-size: 0.9rem;
+}
+
+/* Animasi modal */
+@keyframes fadeZoom {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  width: 85%;
+  max-width: 700px;
+  text-align: center;
+  position: relative;
+  animation: fadeZoom 0.4s ease forwards;
+}
+
+.modal-content h2 {
+  margin-bottom: 15px;
+  color: #0a1f2c;
+}
+
+.varian-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.varian-container img {
+  width: 100%;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+
+.varian-container img:hover {
+  transform: scale(1.08);
+}
+
+/* Efek 3D untuk varian */
+.varian-3d {
+  transition: transform 0.5s ease;
+}
+
+.varian-3d:hover {
+  transform: rotateY(15deg) rotateX(10deg) scale(1.1);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* Container untuk custom service */
+.custom-service {
+  background: #f0f0f0;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.custom-service:hover {
+  background: #00e5ff;
+  color: white;
+}
+
+.custom-service i {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+/* Modal 3D Preview */
+.varian-3d-container {
+  perspective: 1000px;
+}
+
+.varian-3d-preview {
+  width: 100%;
+  max-width: 400px;
+  transform-style: preserve-3d;
+  animation: rotate3D 5s infinite linear;
+}
+
+@keyframes rotate3D {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(360deg); }
+}
+
+/* Area preview varian */
+.varian-preview {
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: fadeZoom 0.4s ease forwards;
+}
+
+.varian-preview img {
+  max-width: 300px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+  animation: zoomIn 0.5s ease forwards;
+}
+
+.varian-spec {
+  max-width: 350px;
+  text-align: left;
+  animation: slideIn 0.5s ease forwards;
+}
+
+.varian-spec h3 {
+  margin-bottom: 10px;
+  color: #0a1f2c;
+}
+
+.varian-spec p {
+  line-height: 1.5;
+  margin: 5px 0;
+}
+
+/* Animasi tambahan */
+@keyframes zoomIn {
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(50px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 26px;
+  font-weight: bold;
+  color: red;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.close-btn:hover {
+  transform: rotate(90deg);
+}
+
+/* Styling hanya berlaku di modal 3 */
+.contact-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.contact-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #fff;
+  transition: 0.3s;
+  min-width: 130px;
+  justify-content: center;
+}
+
+.contact-btn i {
+  font-size: 18px;
+}
+
+/* Warna masing-masing tombol */
+.contact-btn.whatsapp {
+  background: #25D366;
+}
+.contact-btn.whatsapp:hover {
+  background: #1da851;
+}
+
+.contact-btn.instagram {
+  background: linear-gradient(45deg, #f9ce34, #ee2a7b, #6228d7);
+}
+.contact-btn.instagram:hover {
+  opacity: 0.85;
+}
+
+.contact-btn.email {
+  background: #007bff;
+}
+.contact-btn.email:hover {
+  background: #0056b3;
+}
+
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  nav {
+    margin: 15px 0 0 0;
+  }
+}
+.varian-container img {
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  cursor: grab;
+}
+.varian-container img:active {
+  cursor: grabbing;
+  transform: scale(1.03);
+}
